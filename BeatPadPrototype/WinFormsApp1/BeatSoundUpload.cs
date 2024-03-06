@@ -14,8 +14,8 @@ namespace WinFormsApp1
 {
     public partial class BeatSoundUpload : Form
     {
-        public static int AudioCount = 0;
-        public String? filename { get; set; }
+        public static int AudioCount = 0; // used for audio file name when copied
+        public String? filepath { get; set; }
         public String? name { get; set; }
 
         public BeatSoundUpload()
@@ -25,13 +25,18 @@ namespace WinFormsApp1
 
         private void uploadAudioButton_Click(object sender, EventArgs e)
         {
+            // creates an instance of fileDialog 
             OpenFileDialog fileDialog = new OpenFileDialog();
-            getAudioDirectory();
 
+            // show the dialog and if a file is added,
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                this.filename = fileDialog.FileName;
-                uploadText.Text = this.filename;
+                Debug.Write("Result == OK");
+                // get the filepath of file added
+                this.filepath = fileDialog.FileName;
+                // add the filepath to the window
+                uploadText.Text = this.filepath;
+                // enable the submit button
                 buttonNameSubmit.Enabled = true;
             }
 
@@ -39,30 +44,34 @@ namespace WinFormsApp1
 
         private void buttonNameSubmit_Click(object sender, EventArgs e)
         {
-            if (this.filename != null)
+            if (this.filepath != null)
             {
-                // get the AudioFolder directory and add the audio file name which will be the value of AudioCount
+                // get the AudioFolder directory and add the audio file name
                 String destination = getAudioDirectory() + $"/Audio{AudioCount}.mp3";
-                // Copy the file to AudioFolder 
-                File.Copy(this.filename, destination, true);
-                // Replace filename to the destination file
-                this.filename = destination;
+                // Copy the uploaded audio file to AudioFolder 
+                File.Copy(this.filepath, destination, true);
+                // Replace filepath to the audio folder filepath
+                this.filepath = destination;
                 // increment AudioCount
                 AudioCount++;
-                // change name to the input box 
+                // change button name to user input
                 this.name = buttonNameBox.Text;
+                // close the tab
                 this.Close();
             }
         }
 
         public void resetForm()
         {
+            // disable the submit button
+            buttonNameSubmit.Enabled = false;
             buttonNameBox.Text = string.Empty;
             uploadText.Text = string.Empty;
         }
 
         public string getAudioDirectory()
         {
+            // get the audio folder path
             string rootDirectory = AppDomain.CurrentDomain.BaseDirectory;
             int index = rootDirectory.IndexOf("BeatPadPrototype");
             string audioFolderDir = rootDirectory.Substring(0, index + "BeatPadPrototype".Length);

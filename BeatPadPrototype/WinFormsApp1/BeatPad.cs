@@ -2,53 +2,59 @@ namespace WinFormsApp1
 {
     public partial class BeatPad : Form
     {
-        BeatSoundUpload uploadForm = new BeatSoundUpload();
-        AudioPlayer player;
-        AudioPlayer player2;
+        BeatSoundUpload uploadForm = new BeatSoundUpload(); // upload form
+        AudioPlayer player; // audio player class
 
-        String button1Filename;
-        String button2Filename;
-        String button3Filename;
+        String button1Filepath; // file path for button1... etc
+        String button2Filepath;
+        String button3Filepath;
         public BeatPad()
         {
             InitializeComponent();
-            this.player = new AudioPlayer();
-            this.player2 = new AudioPlayer();
+            this.player = new AudioPlayer(); // create a new instance of audio player
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (button1Filename != null)
+            if (button1Filepath != null)
             {
-                player.PlayAudio(button1Filename);
+                // call audio player class and call the method play audio
+                player.PlayAudio(button1Filepath);
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (button2Filename != null)
+            if (button2Filepath != null)
             {
-                player2.PlayAudio(button2Filename);
+                player.PlayAudio(button2Filepath);
             }
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (button3Filename != null)
+            if (button3Filepath != null)
             {
-                player.PlayAudio(button3Filename);
+                player.PlayAudio(button3Filepath);
             }
         }
 
         private void upload1_Click(object sender, EventArgs e)
         {
+            // reset upload form
             uploadForm.resetForm();
+            // show the upload form
             uploadForm.ShowDialog();
-            if (uploadForm.filename != null)
+
+            // if user successfully uploads file
+            if (uploadForm.filepath != null)
             {
-                this.button1Filename = uploadForm.filename;
+                // add the audio file path of button 1
+                this.button1Filepath = uploadForm.filepath;
+                // enable button 1
                 button1.Enabled = true;
+                // change the button name if user added a name
                 if (upload1.Name != null)
                 {
                     button1.Text = uploadForm.name;
@@ -64,9 +70,9 @@ namespace WinFormsApp1
         {
             uploadForm.resetForm();
             uploadForm.ShowDialog();
-            if (uploadForm.filename != null)
+            if (uploadForm.filepath != null)
             {
-                this.button2Filename = uploadForm.filename;
+                this.button2Filepath = uploadForm.filepath;
                 button2.Enabled = true;
                 if (upload2.Name != null)
                 {
@@ -83,9 +89,9 @@ namespace WinFormsApp1
         {
             uploadForm.resetForm();
             uploadForm.ShowDialog();
-            if (uploadForm.filename != null)
+            if (uploadForm.filepath != null)
             {
-                this.button3Filename = uploadForm.filename;
+                this.button3Filepath = uploadForm.filepath;
                 button3.Enabled = true;
                 if (upload3.Name != null)
                 {
