@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp1
 {
+    /// <summary>
+    /// SeungJae Baek
+    /// 
+    /// AudioPlayer Class
+    /// Plays audio
+    /// </summary>
     internal class AudioPlayer
     {
         private WaveOutEvent outputDevice;

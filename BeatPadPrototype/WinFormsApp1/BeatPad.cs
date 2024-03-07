@@ -1,5 +1,10 @@
 namespace WinFormsApp1
 {
+    /// <summary>
+    /// Bryan Fung
+    /// 
+    /// Main Form
+    /// </summary>
     public partial class BeatPad : Form
     {
         BeatSoundUpload uploadForm = new BeatSoundUpload(); // upload form

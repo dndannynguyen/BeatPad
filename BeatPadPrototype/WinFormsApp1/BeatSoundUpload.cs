@@ -12,6 +12,11 @@ using System.Diagnostics;
 
 namespace WinFormsApp1
 {
+    /// <summary>
+    /// Danny 
+    /// 
+    /// Upload Form
+    /// </summary>
     public partial class BeatSoundUpload : Form
     {
         public static int AudioCount = 0; // used for audio file name when copied
