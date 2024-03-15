@@ -1,8 +1,7 @@
 ﻿using NAudio.Wave;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace WinFormsApp1
@@ -15,16 +14,14 @@ namespace WinFormsApp1
     /// </summary>
     internal class AudioPlayer
     {
-        private WaveOutEvent outputDevice;
-        private AudioFileReader? audioFile;
-
-        public AudioPlayer()
+        public override bool Equals(object? obj)
         {
-            // initialize output device
-            if (outputDevice == null)
-            {
-                outputDevice = new WaveOutEvent();
-            }
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
 
         public void PlayAudio(string filepath)
@@ -32,19 +29,24 @@ namespace WinFormsApp1
             bool fileExists = File.Exists(filepath);
             if (fileExists)
             {
-                audioFile = new AudioFileReader(filepath);
-                outputDevice.Init(audioFile);
-                outputDevice.Play(); 
-                while (outputDevice.PlaybackState == PlaybackState.Playing)
+                Task.Run(() =>
                 {
-                    Thread.Sleep(1000);
-                }
+                    // initialize output device
+                    var outputDevice = new WaveOutEvent();
+                    var audioFile = new AudioFileReader(filepath);
+                    outputDevice.Init(audioFile);
+                    outputDevice.Play();
+                });
             }
             else
             {
                 System.Diagnostics.Debug.WriteLine("File does not exist");
             }
+        }
 
+        public override string? ToString()
+        {
+            return base.ToString();
         }
     }
 }
