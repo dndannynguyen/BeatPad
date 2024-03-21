@@ -82,3 +82,4 @@ C:\Users\Bryan\Source\Repos\SJB7788\BeatPadPrototype\BeatPadPrototype\WinFormsAp
 C:\Users\Bryan\Source\Repos\SJB7788\BeatPadPrototype\BeatPadPrototype\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.pdb
 C:\Users\Bryan\Source\Repos\SJB7788\BeatPadPrototype\BeatPadPrototype\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.genruntimeconfig.cache
 C:\Users\Bryan\Source\Repos\SJB7788\BeatPadPrototype\BeatPadPrototype\WinFormsApp1\obj\Debug\net8.0-windows\ref\WinFormsApp1.dll
+C:\Users\sbj77\Documents\GitHub\BeatPadPrototype\BeatPadPrototype\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Metronome.resources
