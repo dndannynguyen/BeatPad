@@ -7,6 +7,9 @@
     <Compile Update="BeatPad.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Metronome.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
