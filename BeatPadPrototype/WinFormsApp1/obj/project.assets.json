@@ -487,23 +487,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bryan\\.nuget\\packages\\": {},
+    "C:\\Users\\sbj77\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bryan\\Source\\Repos\\SJB7788\\BeatPadPrototype\\BeatPadPrototype\\WinFormsApp1\\WinFormsApp1.csproj",
+      "projectUniqueName": "C:\\Users\\sbj77\\Documents\\GitHub\\BeatPadPrototype\\BeatPadPrototype\\WinFormsApp1\\WinFormsApp1.csproj",
       "projectName": "WinFormsApp1",
-      "projectPath": "C:\\Users\\Bryan\\Source\\Repos\\SJB7788\\BeatPadPrototype\\BeatPadPrototype\\WinFormsApp1\\WinFormsApp1.csproj",
-      "packagesPath": "C:\\Users\\Bryan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bryan\\Source\\Repos\\SJB7788\\BeatPadPrototype\\BeatPadPrototype\\WinFormsApp1\\obj\\",
+      "projectPath": "C:\\Users\\sbj77\\Documents\\GitHub\\BeatPadPrototype\\BeatPadPrototype\\WinFormsApp1\\WinFormsApp1.csproj",
+      "packagesPath": "C:\\Users\\sbj77\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sbj77\\Documents\\GitHub\\BeatPadPrototype\\BeatPadPrototype\\WinFormsApp1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Bryan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sbj77\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
