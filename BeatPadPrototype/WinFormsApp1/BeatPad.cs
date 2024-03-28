@@ -376,5 +376,10 @@ namespace WinFormsApp1
             FourBar fourBar = new FourBar();
             fourBar.Show();
         }
+
+        private void additionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
