@@ -68,7 +68,7 @@ namespace WinFormsApp1
                 {
                     button1.Text = "Button";
                 }
-            }            
+            }
         }
 
         private void upload2_Click(object sender, EventArgs e)
@@ -107,6 +107,12 @@ namespace WinFormsApp1
                     button3.Text = "Button";
                 }
             }
+        }
+
+        private void metronomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Metronome metronome = new Metronome();
+            metronome.Show();
         }
     }
 }
