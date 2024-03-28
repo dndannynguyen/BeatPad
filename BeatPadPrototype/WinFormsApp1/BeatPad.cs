@@ -23,6 +23,12 @@ namespace WinFormsApp1
         String button11Filepath;
         String button12Filepath;
 
+        public BeatPad()
+        {
+            InitializeComponent();
+            this.player = new AudioPlayer(); // create a new instance of audio player
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
