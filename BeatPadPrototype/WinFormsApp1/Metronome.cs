@@ -57,7 +57,11 @@ namespace WinFormsApp1
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
-
+            int bpmUpperRange = UpperLimit - LowerLimit;
+            float maxScrollValue = 91f;
+            float scrollValue = hScrollBar1.Value / maxScrollValue;
+            int finalBpm = (int) (LowerLimit + (bpmUpperRange * scrollValue));
+            bpmBox.Text = finalBpm.ToString();
         }
 
     }
