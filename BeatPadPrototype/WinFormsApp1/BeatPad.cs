@@ -195,9 +195,6 @@ namespace WinFormsApp1
             Metronome metronome = new Metronome();
             metronome.Show();
         }
-    }
-            }
-        }
 
         private void upload4_Click(object sender, EventArgs e)
         {
@@ -372,6 +369,12 @@ namespace WinFormsApp1
         private void BeatPad_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void beatFormatterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FourBar fourBar = new FourBar();
+            fourBar.Show();
         }
     }
 }
