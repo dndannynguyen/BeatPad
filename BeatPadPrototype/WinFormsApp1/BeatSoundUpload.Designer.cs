@@ -37,7 +37,7 @@
             // 
             // buttonNameBox
             // 
-            buttonNameBox.Location = new Point(63, 80);
+            buttonNameBox.Location = new Point(68, 20);
             buttonNameBox.Name = "buttonNameBox";
             buttonNameBox.Size = new Size(295, 23);
             buttonNameBox.TabIndex = 0;
@@ -45,9 +45,9 @@
             // buttonNameSubmit
             // 
             buttonNameSubmit.Enabled = false;
-            buttonNameSubmit.Location = new Point(180, 215);
+            buttonNameSubmit.Location = new Point(163, 122);
             buttonNameSubmit.Name = "buttonNameSubmit";
-            buttonNameSubmit.Size = new Size(53, 37);
+            buttonNameSubmit.Size = new Size(75, 45);
             buttonNameSubmit.TabIndex = 1;
             buttonNameSubmit.Text = "Add";
             buttonNameSubmit.UseVisualStyleBackColor = true;
@@ -56,7 +56,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(63, 62);
+            label1.Location = new Point(68, 2);
             label1.Name = "label1";
             label1.Size = new Size(78, 15);
             label1.TabIndex = 2;
@@ -64,9 +64,9 @@
             // 
             // uploadAudioButton
             // 
-            uploadAudioButton.Location = new Point(169, 151);
+            uploadAudioButton.Location = new Point(163, 70);
             uploadAudioButton.Name = "uploadAudioButton";
-            uploadAudioButton.Size = new Size(75, 23);
+            uploadAudioButton.Size = new Size(75, 44);
             uploadAudioButton.TabIndex = 3;
             uploadAudioButton.Text = "Upload";
             uploadAudioButton.UseVisualStyleBackColor = true;
@@ -74,7 +74,7 @@
             // 
             // uploadText
             // 
-            uploadText.Location = new Point(-2, 127);
+            uploadText.Location = new Point(12, 46);
             uploadText.Name = "uploadText";
             uploadText.RightToLeft = RightToLeft.No;
             uploadText.Size = new Size(426, 21);
@@ -85,7 +85,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(426, 283);
+            ClientSize = new Size(416, 181);
             Controls.Add(uploadText);
             Controls.Add(uploadAudioButton);
             Controls.Add(label1);
