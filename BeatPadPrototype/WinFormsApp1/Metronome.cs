@@ -32,21 +32,33 @@ namespace WinFormsApp1
             SetScrollBar(bpm);
         }
 
+        /// <summary>
+        /// When play button is clicked, it checks for valid bpm and starts the metronome
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             // if bpmBox text is more than lower limit or less than upper limit
             if (LowerLimit <= int.Parse(bpmBox.Text) && int.Parse(bpmBox.Text) <= UpperLimit)
             {
-                bpm = int.Parse(bpmBox.Text);
+                this.bpm = int.Parse(bpmBox.Text);
             }
             else
             {
-                bpm = int.Parse(bpmBox.Text) > UpperLimit ? UpperLimit : LowerLimit;
+                this.bpm = int.Parse(bpmBox.Text) > UpperLimit ? UpperLimit : LowerLimit;
             }
-            bpmBox.Text = bpm.ToString();
+            bpmBox.Text = this.bpm.ToString();
             PlayMetronome();
         }
 
+        /// <summary>
+        /// checks if input is numerical and updates bpm attribute
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bpmBox_TextChanged(object sender, EventArgs e)
         {
             bool isNumerical = int.TryParse(bpmBox.Text, out int Int);
@@ -54,10 +66,16 @@ namespace WinFormsApp1
             {
                 bpmBox.Text = "60";
             }
-            bpm = int.Parse(bpmBox.Text);
-            SetScrollBar(bpm);
+            this.bpm = int.Parse(bpmBox.Text);
+            SetScrollBar(this.bpm);
         }
 
+        /// <summary>
+        /// When scroll bar is scrolled, update the bpmBox text
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
             int bpmUpperRange = UpperLimit - LowerLimit;
@@ -67,6 +85,11 @@ namespace WinFormsApp1
             bpmBox.Text = finalBpm.ToString();
         }
 
+        /// <summary>
+        /// Set the scroll bar to a certain value depending on the bpm
+        /// 
+        /// </summary>
+        /// <param name="bpm"></param>
         private void SetScrollBar(int bpm)
         {
             int bpmUpperRange = UpperLimit - LowerLimit;
@@ -82,25 +105,45 @@ namespace WinFormsApp1
             }
         }
 
+        /// <summary>
+        /// Start timer
+        /// 
+        /// </summary>
+        /// <param name="interval"></param>
         public void StartTimer(int interval)
         {
             timer.Interval = interval;
             timer.Start();
         }
 
+        /// <summary>
+        /// Play metronome tick
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TimerTick(object sender, EventArgs e)
         {
             string filepath = GetAudioDirectory() + $"/metronome/tick.mp3";
             player.PlayAudio(filepath);
         }
 
+        /// <summary>
+        /// Starts the metronome
+        /// 
+        /// </summary>
         private void PlayMetronome()
         {
-            float bps = bpm / 60f;
+            float bps = this.bpm / 60f;
             int spb = (int)((1 / bps) * 1000f);
             StartTimer(spb);
         }
 
+        /// <summary>
+        /// Create base audio directory filepath string and return it
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string GetAudioDirectory()
         {
             // get the audio folder path
