@@ -87,5 +87,25 @@ namespace WinFormsApp1
         private void BeatSoundUpload_Load(object sender, EventArgs e)
         {
         }
+
+        private void buttonNameBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelButtonName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonNameBox_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
