@@ -126,7 +126,8 @@ namespace WinFormsApp1
                 player.PlayAudio(button12Filepath);
             }
         }
-        private void upload1_Click(object sender, EventArgs e)
+
+        private String UploadButtonClickEvent(Button button, Button uploadButton)
         {
             // reset upload form
             uploadForm.resetForm();
@@ -137,56 +138,48 @@ namespace WinFormsApp1
             if (uploadForm.filepath != null)
             {
                 // add the audio file path of button 1
-                this.button1Filepath = uploadForm.filepath;
+                button.Enabled = true;
+
                 // enable button 1
-                button1.Enabled = true;
-                // change the button name if user added a name
-                if (upload1.Name != null)
+                if (uploadButton.Name != null)
                 {
-                    button1.Text = uploadForm.name;
+                    // change the button name if user added a name
+                    button.Text = uploadForm.name;
                 }
                 else
                 {
-                    button1.Text = "Button";
+                    // if user did not add a name, default to Button
+                    button.Text = "Button";
                 }
+                return uploadForm.filepath;
+            }
+            return "null";
+        }
+
+        private void upload1_Click(object sender, EventArgs e)
+        {
+            String filepath = UploadButtonClickEvent(button1, upload1);
+            if (filepath != "null")
+            {
+                this.button1Filepath = filepath;
             }
         }
 
         private void upload2_Click(object sender, EventArgs e)
         {
-            uploadForm.resetForm();
-            uploadForm.ShowDialog();
-            if (uploadForm.filepath != null)
+            String filepath = UploadButtonClickEvent(button2, upload2);
+            if (filepath != "null")
             {
-                this.button2Filepath = uploadForm.filepath;
-                button2.Enabled = true;
-                if (upload2.Name != null)
-                {
-                    button2.Text = uploadForm.name;
-                }
-                else
-                {
-                    button2.Text = "Button";
-                }
+                this.button2Filepath = filepath;
             }
         }
 
         private void upload3_Click(object sender, EventArgs e)
         {
-            uploadForm.resetForm();
-            uploadForm.ShowDialog();
-            if (uploadForm.filepath != null)
+            String filepath = UploadButtonClickEvent(button3, upload3);
+            if (filepath != "null")
             {
-                this.button3Filepath = uploadForm.filepath;
-                button3.Enabled = true;
-                if (upload3.Name != null)
-                {
-                    button3.Text = uploadForm.name;
-                }
-                else
-                {
-                    button3.Text = "Button";
-                }
+                this.button3Filepath = filepath;
             }
         }
 
@@ -198,171 +191,80 @@ namespace WinFormsApp1
 
         private void upload4_Click(object sender, EventArgs e)
         {
-            uploadForm.resetForm();
-            uploadForm.ShowDialog();
-            if (uploadForm.filepath != null)
+            String filepath = UploadButtonClickEvent(button4, upload4);
+            if (filepath != "null")
             {
-                this.button4Filepath = uploadForm.filepath;
-                button4.Enabled = true;
-                if (upload4.Name != null)
-                {
-                    button4.Text = uploadForm.name;
-                }
-                else
-                {
-                    button4.Text = "Button";
-                }
+                this.button4Filepath = filepath;
             }
         }
 
         private void upload5_Click(object sender, EventArgs e)
         {
-            uploadForm.resetForm();
-            uploadForm.ShowDialog();
-            if (uploadForm.filepath != null)
+            String filepath = UploadButtonClickEvent(button5, upload5);
+            if (filepath != "null")
             {
-                this.button5Filepath = uploadForm.filepath;
-                button5.Enabled = true;
-                if (upload5.Name != null)
-                {
-                    button5.Text = uploadForm.name;
-                }
-                else
-                {
-                    button5.Text = "Button";
-                }
+                this.button5Filepath = filepath;
             }
-
         }
 
         private void upload6_Click(object sender, EventArgs e)
         {
-            uploadForm.resetForm();
-            uploadForm.ShowDialog();
-            if (uploadForm.filepath != null)
+            String filepath = UploadButtonClickEvent(button6, upload6);
+            if (filepath != "null")
             {
-                this.button6Filepath = uploadForm.filepath;
-                button6.Enabled = true;
-                if (upload6.Name != null)
-                {
-                    button6.Text = uploadForm.name;
-                }
-                else
-                {
-                    button6.Text = "Button";
-                }
+                this.button6Filepath = filepath;
             }
         }
 
         private void upload7_Click(object sender, EventArgs e)
         {
-            uploadForm.resetForm();
-            uploadForm.ShowDialog();
-            if (uploadForm.filepath != null)
+            String filepath = UploadButtonClickEvent(button7, upload7);
+            if (filepath != "null")
             {
-                this.button7Filepath = uploadForm.filepath;
-                button7.Enabled = true;
-                if (upload7.Name != null)
-                {
-                    button7.Text = uploadForm.name;
-                }
-                else
-                {
-                    button7.Text = "Button";
-                }
+                this.button7Filepath = filepath;
             }
         }
 
         private void upload8_Click(object sender, EventArgs e)
         {
-            uploadForm.resetForm();
-            uploadForm.ShowDialog();
-            if (uploadForm.filepath != null)
+            String filepath = UploadButtonClickEvent(button8, upload8);
+            if (filepath != "null")
             {
-                this.button8Filepath = uploadForm.filepath;
-                button8.Enabled = true;
-                if (upload8.Name != null)
-                {
-                    button8.Text = uploadForm.name;
-                }
-                else
-                {
-                    button8.Text = "Button";
-                }
+                this.button8Filepath = filepath;
             }
         }
 
         private void upload9_Click(object sender, EventArgs e)
         {
-            uploadForm.resetForm();
-            uploadForm.ShowDialog();
-            if (uploadForm.filepath != null)
+            String filepath = UploadButtonClickEvent(button9, upload9);
+            if (filepath != "null")
             {
-                this.button9Filepath = uploadForm.filepath;
-                button9.Enabled = true;
-                if (upload9.Name != null)
-                {
-                    button9.Text = uploadForm.name;
-                }
-                else
-                {
-                    button9.Text = "Button";
-                }
+                this.button9Filepath = filepath;
             }
         }
 
         private void upload10_Click(object sender, EventArgs e)
         {
-            uploadForm.resetForm();
-            uploadForm.ShowDialog();
-            if (uploadForm.filepath != null)
+            String filepath = UploadButtonClickEvent(button10, upload10);
+            if (filepath != "null")
             {
-                this.button10Filepath = uploadForm.filepath;
-                button10.Enabled = true;
-                if (upload10.Name != null)
-                {
-                    button10.Text = uploadForm.name;
-                }
-                else
-                {
-                    button10.Text = "Button";
-                }
+                this.button10Filepath = filepath;
             }
         }
         private void upload11_Click(object sender, EventArgs e)
         {
-            uploadForm.resetForm();
-            uploadForm.ShowDialog();
-            if (uploadForm.filepath != null)
+            String filepath = UploadButtonClickEvent(button11, upload11);
+            if (filepath != "null")
             {
-                this.button11Filepath = uploadForm.filepath;
-                button11.Enabled = true;
-                if (upload11.Name != null)
-                {
-                    button11.Text = uploadForm.name;
-                }
-                else
-                {
-                    button11.Text = "Button";
-                }
+                this.button11Filepath = filepath;
             }
         }
         private void upload12_Click(object sender, EventArgs e)
         {
-            uploadForm.resetForm();
-            uploadForm.ShowDialog();
-            if (uploadForm.filepath != null)
+            String filepath = UploadButtonClickEvent(button12, upload12);
+            if (filepath != "null")
             {
-                this.button12Filepath = uploadForm.filepath;
-                button12.Enabled = true;
-                if (upload12.Name != null)
-                {
-                    button12.Text = uploadForm.name;
-                }
-                else
-                {
-                    button12.Text = "Button";
-                }
+                this.button12Filepath = filepath;
             }
         }
 

@@ -26,7 +26,7 @@ namespace WinFormsApp1
 
         public void PlayAudio(string filepath)
         {
-            bool fileExists = File.Exists(filepath);
+            bool fileExists = File.Exists(filepath); // excedpgions
             if (fileExists)
             {
                 Task.Run(() =>
