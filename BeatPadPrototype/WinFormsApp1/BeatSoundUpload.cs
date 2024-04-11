@@ -53,18 +53,31 @@ namespace WinFormsApp1
             {
                 // get the AudioFolder directory and add the audio file name
                 String destination = getAudioDirectory() + $"/Audio{AudioCount}.mp3";
+
+                // Check if the directory exists, if not, create it
+                String directoryPath = Path.GetDirectoryName(destination);
+                if (!Directory.Exists(directoryPath))
+                {
+                    Directory.CreateDirectory(directoryPath);
+                }
+
                 // Copy the uploaded audio file to AudioFolder 
                 File.Copy(this.filepath, destination, true);
+
                 // Replace filepath to the audio folder filepath
                 this.filepath = destination;
+
                 // increment AudioCount
                 AudioCount++;
+
                 // change button name to user input
                 this.name = buttonNameBox.Text;
+
                 // close the tab
                 this.Close();
             }
         }
+
 
         public void resetForm()
         {
