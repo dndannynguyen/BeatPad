@@ -69,7 +69,7 @@
             Controls.Add(devices);
             Controls.Add(recordButton);
             Name = "Recorder";
-            Text = "Form1";
+            Text = "Beat Recorder";
             ResumeLayout(false);
             PerformLayout();
         }
