@@ -24,9 +24,11 @@ namespace WinFormsApp1
             return base.GetHashCode();
         }
 
-        public void PlayAudio(string filepath)
+        public Task<TimeSpan> PlayAudio(string filepath)
         {
-            bool fileExists = File.Exists(filepath); // excedpgions
+            var tcs = new TaskCompletionSource<TimeSpan>();
+            bool fileExists = File.Exists(filepath); // exceptions
+
             if (fileExists)
             {
                 Task.Run(() =>
@@ -36,13 +38,23 @@ namespace WinFormsApp1
                     var audioFile = new AudioFileReader(filepath);
                     outputDevice.Init(audioFile);
                     outputDevice.Play();
+
+                    // get the total duration of the audio file
+                    TimeSpan duration = audioFile.TotalTime;
+
+                    tcs.SetResult(duration);
                 });
             }
             else
             {
                 System.Diagnostics.Debug.WriteLine("File does not exist");
+                tcs.SetResult(TimeSpan.Zero);
             }
+
+            return tcs.Task;
         }
+
+
 
         public override string? ToString()
         {
