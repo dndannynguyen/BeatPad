@@ -32,7 +32,7 @@
             hScrollBar1 = new HScrollBar();
             bpmBox = new TextBox();
             label1 = new Label();
-            button1 = new Button();
+            metronomePlay = new Button();
             timer = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
@@ -64,16 +64,16 @@
             label1.TabIndex = 2;
             label1.Text = "bpm";
             // 
-            // button1
+            // metronomePlay
             // 
-            button1.Location = new Point(141, 188);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(93, 39);
-            button1.TabIndex = 3;
-            button1.Text = "play";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            metronomePlay.Location = new Point(141, 188);
+            metronomePlay.Margin = new Padding(3, 2, 3, 2);
+            metronomePlay.Name = "metronomePlay";
+            metronomePlay.Size = new Size(93, 39);
+            metronomePlay.TabIndex = 3;
+            metronomePlay.Text = "Play";
+            metronomePlay.UseVisualStyleBackColor = true;
+            metronomePlay.Click += metronomePlay_Click;
             // 
             // timer
             // 
@@ -84,7 +84,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(374, 274);
-            Controls.Add(button1);
+            Controls.Add(metronomePlay);
             Controls.Add(label1);
             Controls.Add(bpmBox);
             Controls.Add(hScrollBar1);
@@ -100,7 +100,7 @@
         private HScrollBar hScrollBar1;
         private TextBox bpmBox;
         private Label label1;
-        private Button button1;
+        private Button metronomePlay;
         private System.Windows.Forms.Timer timer;
     }
 }

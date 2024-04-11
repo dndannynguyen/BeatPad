@@ -38,19 +38,28 @@ namespace WinFormsApp1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        private void metronomePlay_Click(object sender, EventArgs e)
         {
             // if bpmBox text is more than lower limit or less than upper limit
-            if (LowerLimit <= int.Parse(bpmBox.Text) && int.Parse(bpmBox.Text) <= UpperLimit)
+            if (metronomePlay.Text == "Play")
             {
-                this.bpm = int.Parse(bpmBox.Text);
+                if (LowerLimit <= int.Parse(bpmBox.Text) && int.Parse(bpmBox.Text) <= UpperLimit)
+                {
+                    this.bpm = int.Parse(bpmBox.Text);
+                }
+                else
+                {
+                    this.bpm = int.Parse(bpmBox.Text) > UpperLimit ? UpperLimit : LowerLimit;
+                }
+                bpmBox.Text = this.bpm.ToString();
+                PlayMetronome();
+                metronomePlay.Text = "Stop";
             }
             else
             {
-                this.bpm = int.Parse(bpmBox.Text) > UpperLimit ? UpperLimit : LowerLimit;
+                metronomePlay.Text = "Play";
+                StopMetronome();
             }
-            bpmBox.Text = this.bpm.ToString();
-            PlayMetronome();
         }
 
         /// <summary>
@@ -137,6 +146,11 @@ namespace WinFormsApp1
             float bps = this.bpm / 60f;
             int spb = (int)((1 / bps) * 1000f);
             StartTimer(spb);
+        }
+
+        private void StopMetronome()
+        {
+            timer.Stop();
         }
 
         /// <summary>
