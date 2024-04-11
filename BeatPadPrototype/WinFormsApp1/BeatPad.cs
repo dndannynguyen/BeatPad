@@ -11,7 +11,7 @@ namespace WinFormsApp1
     {
         Recorder recorder;
         BeatSoundUpload uploadForm = new BeatSoundUpload(); // upload form
-        FourBar fourBar = new FourBar();
+        FourBar fourBar;
         AudioPlayer player; // audio player class
 
         String button1Filepath; // file path for button1... etc
@@ -603,6 +603,7 @@ namespace WinFormsApp1
 
         private void beatFormatterToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            fourBar = new FourBar();
             fourBar.Show();
         }
 
