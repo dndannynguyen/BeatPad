@@ -1,3 +1,5 @@
+using Timer = System.Windows.Forms.Timer;
+
 namespace WinFormsApp1
 {
     /// <summary>
@@ -28,105 +30,427 @@ namespace WinFormsApp1
             InitializeComponent();
             this.player = new AudioPlayer(); // create a new instance of audio player
         }
-
-
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             if (button1Filepath != null)
             {
                 // call audio player class and call the method play audio
-                player.PlayAudio(button1Filepath);
+                TimeSpan duration = await player.PlayAudio(button1Filepath);
+
+                // create a timer
+                Timer timer = new Timer();
+                timer.Interval = 100; 
+
+                // define the colors to cycle through
+                List<Color> colors = new List<Color> { Color.Red, Color.Blue, Color.Green, Color.Yellow, Color.Purple };
+                Color defaultColor = button1.BackColor;
+
+                // create a tick count
+                int tickCount = 0;
+
+                // define the timer tick event
+                timer.Tick += (s, ev) =>
+                {
+                    // Use Invoke to ensure the UI update happens on the main thread
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        // Cycle through the colors
+                        button1.BackColor = colors[tickCount % colors.Count];
+
+                        tickCount++;
+
+                        if (timer.Interval * tickCount >= duration.TotalMilliseconds)
+                        {
+                            timer.Stop();
+                            timer.Dispose();
+
+                            // revert the button's color to its default
+                            button1.BackColor = defaultColor;
+                        }
+                    });
+                };
+
+                // start the timer
+                timer.Start();
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+
+
+
+
+        private async void button2_Click(object sender, EventArgs e)
         {
             if (button2Filepath != null)
             {
-                player.PlayAudio(button2Filepath);
-            }
+                TimeSpan duration = await player.PlayAudio(button2Filepath);
 
+                Timer timer = new Timer();
+                timer.Interval = 100;
+
+                List<Color> colors = new List<Color> { Color.Red, Color.Blue, Color.Green, Color.Yellow, Color.Purple };
+                Color defaultColor = button2.BackColor;
+
+                int tickCount = 0;
+
+                timer.Tick += (s, ev) =>
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        button2.BackColor = colors[tickCount % colors.Count];
+                        tickCount++;
+
+                        if (timer.Interval * tickCount >= duration.TotalMilliseconds)
+                        {
+                            timer.Stop();
+                            timer.Dispose();
+                            button2.BackColor = defaultColor;
+                        }
+                    });
+                };
+
+                timer.Start();
+            }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private async void button3_Click(object sender, EventArgs e)
         {
             if (button3Filepath != null)
             {
-                player.PlayAudio(button3Filepath);
+                TimeSpan duration = await player.PlayAudio(button3Filepath);
+
+                Timer timer = new Timer();
+                timer.Interval = 100;
+
+                List<Color> colors = new List<Color> { Color.Red, Color.Blue, Color.Green, Color.Yellow, Color.Purple };
+                Color defaultColor = button3.BackColor;
+
+                int tickCount = 0;
+
+                timer.Tick += (s, ev) =>
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        button3.BackColor = colors[tickCount % colors.Count];
+                        tickCount++;
+
+                        if (timer.Interval * tickCount >= duration.TotalMilliseconds)
+                        {
+                            timer.Stop();
+                            timer.Dispose();
+                            button3.BackColor = defaultColor;
+                        }
+                    });
+                };
+
+                timer.Start();
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private async void button4_Click(object sender, EventArgs e)
         {
             if (button4Filepath != null)
             {
-                player.PlayAudio(button4Filepath);
+                TimeSpan duration = await player.PlayAudio(button4Filepath);
+
+                Timer timer = new Timer();
+                timer.Interval = 100;
+
+                List<Color> colors = new List<Color> { Color.Red, Color.Blue, Color.Green, Color.Yellow, Color.Purple };
+                Color defaultColor = button4.BackColor;
+
+                int tickCount = 0;
+
+                timer.Tick += (s, ev) =>
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        button4.BackColor = colors[tickCount % colors.Count];
+                        tickCount++;
+
+                        if (timer.Interval * tickCount >= duration.TotalMilliseconds)
+                        {
+                            timer.Stop();
+                            timer.Dispose();
+                            button4.BackColor = defaultColor;
+                        }
+                    });
+                };
+
+                timer.Start();
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private async void button5_Click(object sender, EventArgs e)
         {
             if (button5Filepath != null)
             {
-                player.PlayAudio(button5Filepath);
+                TimeSpan duration = await player.PlayAudio(button5Filepath);
+
+                Timer timer = new Timer();
+                timer.Interval = 100;
+
+                List<Color> colors = new List<Color> { Color.Red, Color.Blue, Color.Green, Color.Yellow, Color.Purple };
+                Color defaultColor = button5.BackColor;
+
+                int tickCount = 0;
+
+                timer.Tick += (s, ev) =>
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        button5.BackColor = colors[tickCount % colors.Count];
+                        tickCount++;
+
+                        if (timer.Interval * tickCount >= duration.TotalMilliseconds)
+                        {
+                            timer.Stop();
+                            timer.Dispose();
+                            button5.BackColor = defaultColor;
+                        }
+                    });
+                };
+
+                timer.Start();
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private async void button6_Click(object sender, EventArgs e)
         {
             if (button6Filepath != null)
             {
-                player.PlayAudio(button6Filepath);
+                TimeSpan duration = await player.PlayAudio(button6Filepath);
+
+                Timer timer = new Timer();
+                timer.Interval = 100;
+
+                List<Color> colors = new List<Color> { Color.Red, Color.Blue, Color.Green, Color.Yellow, Color.Purple };
+                Color defaultColor = button6.BackColor;
+
+                int tickCount = 0;
+
+                timer.Tick += (s, ev) =>
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        button6.BackColor = colors[tickCount % colors.Count];
+                        tickCount++;
+
+                        if (timer.Interval * tickCount >= duration.TotalMilliseconds)
+                        {
+                            timer.Stop();
+                            timer.Dispose();
+                            button6.BackColor = defaultColor;
+                        }
+                    });
+                };
+
+                timer.Start();
             }
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private async void button7_Click(object sender, EventArgs e)
         {
             if (button7Filepath != null)
             {
-                player.PlayAudio(button7Filepath);
+                TimeSpan duration = await player.PlayAudio(button7Filepath);
+
+                Timer timer = new Timer();
+                timer.Interval = 100;
+
+                List<Color> colors = new List<Color> { Color.Red, Color.Blue, Color.Green, Color.Yellow, Color.Purple };
+                Color defaultColor = button7.BackColor;
+
+                int tickCount = 0;
+
+                timer.Tick += (s, ev) =>
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        button7.BackColor = colors[tickCount % colors.Count];
+                        tickCount++;
+
+                        if (timer.Interval * tickCount >= duration.TotalMilliseconds)
+                        {
+                            timer.Stop();
+                            timer.Dispose();
+                            button7.BackColor = defaultColor;
+                        }
+                    });
+                };
+
+                timer.Start();
             }
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private async void button8_Click(object sender, EventArgs e)
         {
             if (button8Filepath != null)
             {
-                player.PlayAudio(button8Filepath);
+                TimeSpan duration = await player.PlayAudio(button8Filepath);
+
+                Timer timer = new Timer();
+                timer.Interval = 100;
+
+                List<Color> colors = new List<Color> { Color.Red, Color.Blue, Color.Green, Color.Yellow, Color.Purple };
+                Color defaultColor = button8.BackColor;
+
+                int tickCount = 0;
+
+                timer.Tick += (s, ev) =>
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        button8.BackColor = colors[tickCount % colors.Count];
+                        tickCount++;
+
+                        if (timer.Interval * tickCount >= duration.TotalMilliseconds)
+                        {
+                            timer.Stop();
+                            timer.Dispose();
+                            button8.BackColor = defaultColor;
+                        }
+                    });
+                };
+
+                timer.Start();
             }
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private async void button9_Click(object sender, EventArgs e)
         {
             if (button9Filepath != null)
             {
-                player.PlayAudio(button9Filepath);
+                TimeSpan duration = await player.PlayAudio(button9Filepath);
+
+                Timer timer = new Timer();
+                timer.Interval = 100;
+
+                List<Color> colors = new List<Color> { Color.Red, Color.Blue, Color.Green, Color.Yellow, Color.Purple };
+                Color defaultColor = button9.BackColor;
+
+                int tickCount = 0;
+
+                timer.Tick += (s, ev) =>
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        button9.BackColor = colors[tickCount % colors.Count];
+                        tickCount++;
+
+                        if (timer.Interval * tickCount >= duration.TotalMilliseconds)
+                        {
+                            timer.Stop();
+                            timer.Dispose();
+                            button9.BackColor = defaultColor;
+                        }
+                    });
+                };
+
+                timer.Start();
             }
         }
-        private void button10_Click(object sender, EventArgs e)
+        private async void button10_Click(object sender, EventArgs e)
         {
             if (button10Filepath != null)
             {
-                player.PlayAudio(button10Filepath);
+                TimeSpan duration = await player.PlayAudio(button10Filepath);
+
+                Timer timer = new Timer();
+                timer.Interval = 100;
+
+                List<Color> colors = new List<Color> { Color.Red, Color.Blue, Color.Green, Color.Yellow, Color.Purple };
+                Color defaultColor = button10.BackColor;
+
+                int tickCount = 0;
+
+                timer.Tick += (s, ev) =>
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        button10.BackColor = colors[tickCount % colors.Count];
+                        tickCount++;
+
+                        if (timer.Interval * tickCount >= duration.TotalMilliseconds)
+                        {
+                            timer.Stop();
+                            timer.Dispose();
+                            button10.BackColor = defaultColor;
+                        }
+                    });
+                };
+
+                timer.Start();
             }
         }
-
-        private void button11_Click(object sender, EventArgs e)
+        private async void button11_Click(object sender, EventArgs e)
         {
             if (button11Filepath != null)
             {
-                player.PlayAudio(button11Filepath);
+                TimeSpan duration = await player.PlayAudio(button11Filepath);
+
+                Timer timer = new Timer();
+                timer.Interval = 100;
+
+                List<Color> colors = new List<Color> { Color.Red, Color.Blue, Color.Green, Color.Yellow, Color.Purple };
+                Color defaultColor = button11.BackColor;
+
+                int tickCount = 0;
+
+                timer.Tick += (s, ev) =>
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        button11.BackColor = colors[tickCount % colors.Count];
+                        tickCount++;
+
+                        if (timer.Interval * tickCount >= duration.TotalMilliseconds)
+                        {
+                            timer.Stop();
+                            timer.Dispose();
+                            button11.BackColor = defaultColor;
+                        }
+                    });
+                };
+
+                timer.Start();
             }
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        private async void button12_Click(object sender, EventArgs e)
         {
             if (button12Filepath != null)
             {
-                player.PlayAudio(button12Filepath);
+                TimeSpan duration = await player.PlayAudio(button12Filepath);
+
+                Timer timer = new Timer();
+                timer.Interval = 100;
+
+                List<Color> colors = new List<Color> { Color.Red, Color.Blue, Color.Green, Color.Yellow, Color.Purple };
+                Color defaultColor = button12.BackColor;
+
+                int tickCount = 0;
+
+                timer.Tick += (s, ev) =>
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        button12.BackColor = colors[tickCount % colors.Count];
+                        tickCount++;
+
+                        if (timer.Interval * tickCount >= duration.TotalMilliseconds)
+                        {
+                            timer.Stop();
+                            timer.Dispose();
+                            button12.BackColor = defaultColor;
+                        }
+                    });
+                };
+
+                timer.Start();
             }
         }
-
         private String UploadButtonClickEvent(Button button, Button uploadButton)
         {
             // reset upload form
