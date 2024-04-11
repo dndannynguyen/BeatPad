@@ -6,6 +6,8 @@ using System.Windows.Forms;
 namespace WinFormsApp1
 {
     /// <summary>
+    /// Danny Nguyen
+    /// 
     /// Represents the main form of the application for playing sound files in a loop.
     /// </summary>
     public partial class FourBar : Form
@@ -95,15 +97,6 @@ namespace WinFormsApp1
                 // Select the button
                 selectedButtonIndex = clickedIndex;
                 clickedButton.BackColor = Color.Red;
-
-                // Deselect other buttons
-                foreach (Control control in Controls)
-                {
-                    if (control is Button button && button != clickedButton)
-                    {
-                        button.BackColor = Color.White;
-                    }
-                }
             }
         }
 
@@ -127,11 +120,7 @@ namespace WinFormsApp1
                 // Change the button name if user added a name
                 if (uploadForm.name != null)
                 {
-                    Controls[$"button{currentButtonIndex + 1}"].Text = uploadForm.name;
-                }
-                else
-                {
-                    Controls[$"button{currentButtonIndex + 1}"].Text = $"Button {currentButtonIndex + 1}";
+                    Controls[$"buttonSound1"].Text = uploadForm.name;
                 }
             }
         }

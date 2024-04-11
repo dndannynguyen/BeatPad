@@ -380,7 +380,7 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "FourBar";
-            Text = "Form1";
+            Text = "Beat Formation";
             ResumeLayout(false);
         }
 
