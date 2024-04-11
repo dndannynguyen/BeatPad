@@ -624,5 +624,6 @@ namespace WinFormsApp1
                 recorder.BringToFront();
             }
         }
+
     }
 }

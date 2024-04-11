@@ -177,6 +177,7 @@
             button4.Size = new Size(135, 125);
             button4.TabIndex = 6;
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // upload4
             // 
