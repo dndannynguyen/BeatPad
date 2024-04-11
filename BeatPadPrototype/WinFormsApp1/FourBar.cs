@@ -12,6 +12,7 @@ namespace WinFormsApp1
     /// </summary>
     public partial class FourBar : Form
     {
+        private bool isRunning = false;
         BeatSoundUpload uploadForm = new BeatSoundUpload();
         AudioPlayer player;
         string[] buttonFilepaths = new string[32];
@@ -27,22 +28,30 @@ namespace WinFormsApp1
         public FourBar()
         {
             InitializeComponent();
+            this.FormClosing += FourBarClosing;
             this.player = new AudioPlayer();
             InitializeButtons();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
 
             for (int i = 0; i < 4; i++)
             {
                 soundClickedButtonIndexes[i] = new HashSet<int>();
             }
-
+            isRunning = true;
             PlayButtonsLoop();
 
         }
 
-        /// <summary>
-        /// Initializes the buttons on the form and assigns event handlers.
-        /// </summary>
-        private void InitializeButtons()
+        private void FourBarClosing(object sender, FormClosingEventArgs e)
+        { 
+            isRunning = false;
+        }
+
+            /// <summary>
+            /// Initializes the buttons on the form and assigns event handlers.
+            /// </summary>
+            private void InitializeButtons()
         {
             // Initialize buttons and event handlers
             for (int i = 0; i < 32; i++)
@@ -57,8 +66,9 @@ namespace WinFormsApp1
         /// </summary>
         private async Task PlayButtonsLoop()
         {
-            while (true)
+            while (isRunning)
             {
+
                 for (int i = 0; i < 32; i++)
                 {
                     if (soundClickedButtonIndexes[0].Contains(i) || soundClickedButtonIndexes[1].Contains(i) || soundClickedButtonIndexes[2].Contains(i) || soundClickedButtonIndexes[3].Contains(i))
@@ -76,11 +86,20 @@ namespace WinFormsApp1
                     }
                     else
                     {
-                        // If the button is not set to play sounds in the period, keep the green background going through.
-                        Controls[$"button{i + 1}"].BackColor = Color.Green;
-                        await Task.Delay(250);
-                        Controls[$"button{i + 1}"].BackColor = Color.White;
-                        currentButtonIndex = (currentButtonIndex + 1) % 32;
+                        try
+                        {
+                            // If the button is not set to play sounds in the period, keep the green background going through.
+                            Controls[$"button{i + 1}"].BackColor = Color.Green;
+                            await Task.Delay(250);
+                            Controls[$"button{i + 1}"].BackColor = Color.White;
+                            currentButtonIndex = (currentButtonIndex + 1) % 32;
+
+                        }
+                        catch
+                        {
+                            isRunning = false;
+                            break;
+                        }
                     }
                 }
             }

@@ -28,6 +28,9 @@ namespace WinFormsApp1
         public Recorder()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+
             this.recorder = new AudioRecorder();
             this.listOfDevices = this.recorder.LoadDevices();
             devices.Items.AddRange((object[])this.listOfDevices);

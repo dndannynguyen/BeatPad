@@ -30,6 +30,9 @@ namespace WinFormsApp1
             InitializeComponent();
             bpmBox.Text = bpm.ToString();
             SetScrollBar(bpm);
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
 
         /// <summary>
@@ -90,7 +93,7 @@ namespace WinFormsApp1
             int bpmUpperRange = UpperLimit - LowerLimit;
             float maxScrollValue = 91f;
             float scrollValue = hScrollBar1.Value / maxScrollValue;
-            int finalBpm = (int) (LowerLimit + (bpmUpperRange * scrollValue));
+            int finalBpm = (int)(LowerLimit + (bpmUpperRange * scrollValue));
             bpmBox.Text = finalBpm.ToString();
         }
 
@@ -102,11 +105,11 @@ namespace WinFormsApp1
         private void SetScrollBar(int bpm)
         {
             int bpmUpperRange = UpperLimit - LowerLimit;
-            float bpmRatio = (float) bpm / bpmUpperRange;
+            float bpmRatio = (float)bpm / bpmUpperRange;
             float scrollValue = bpmRatio * 91f;
             if (scrollValue <= 100)
             {
-                hScrollBar1.Value = (int) scrollValue;
+                hScrollBar1.Value = (int)scrollValue;
             }
             else
             {
@@ -166,6 +169,11 @@ namespace WinFormsApp1
             string audioFolderDir = rootDirectory.Substring(0, index + "BeatPadPrototype".Length);
             audioFolderDir = Path.Combine(audioFolderDir, "AudioFolder");
             return audioFolderDir;
+        }
+
+        private void Metronome_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

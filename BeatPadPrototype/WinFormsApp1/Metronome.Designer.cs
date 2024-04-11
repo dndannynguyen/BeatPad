@@ -38,18 +38,17 @@
             // 
             // hScrollBar1
             // 
-            hScrollBar1.Location = new Point(52, 113);
+            hScrollBar1.Location = new Point(59, 151);
             hScrollBar1.Name = "hScrollBar1";
-            hScrollBar1.Size = new Size(269, 26);
+            hScrollBar1.Size = new Size(307, 26);
             hScrollBar1.TabIndex = 0;
             hScrollBar1.Scroll += hScrollBar1_Scroll;
             // 
             // bpmBox
             // 
-            bpmBox.Location = new Point(117, 68);
-            bpmBox.Margin = new Padding(3, 2, 3, 2);
+            bpmBox.Location = new Point(134, 91);
             bpmBox.Name = "bpmBox";
-            bpmBox.Size = new Size(117, 23);
+            bpmBox.Size = new Size(133, 27);
             bpmBox.TabIndex = 1;
             bpmBox.Text = "60";
             bpmBox.TextAlign = HorizontalAlignment.Right;
@@ -58,18 +57,17 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(236, 70);
+            label1.Location = new Point(270, 93);
             label1.Name = "label1";
-            label1.Size = new Size(32, 15);
+            label1.Size = new Size(40, 20);
             label1.TabIndex = 2;
             label1.Text = "bpm";
             // 
             // metronomePlay
             // 
-            metronomePlay.Location = new Point(141, 188);
-            metronomePlay.Margin = new Padding(3, 2, 3, 2);
+            metronomePlay.Location = new Point(161, 251);
             metronomePlay.Name = "metronomePlay";
-            metronomePlay.Size = new Size(93, 39);
+            metronomePlay.Size = new Size(106, 52);
             metronomePlay.TabIndex = 3;
             metronomePlay.Text = "Play";
             metronomePlay.UseVisualStyleBackColor = true;
@@ -81,16 +79,16 @@
             // 
             // Metronome
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(374, 274);
+            ClientSize = new Size(427, 365);
             Controls.Add(metronomePlay);
             Controls.Add(label1);
             Controls.Add(bpmBox);
             Controls.Add(hScrollBar1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Metronome";
             Text = "Metronome";
+            Load += Metronome_Load;
             ResumeLayout(false);
             PerformLayout();
         }

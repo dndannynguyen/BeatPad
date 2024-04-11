@@ -26,6 +26,8 @@ namespace WinFormsApp1
         public BeatSoundUpload()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
 
         private void uploadAudioButton_Click(object sender, EventArgs e)
