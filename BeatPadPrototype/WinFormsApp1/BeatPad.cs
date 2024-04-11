@@ -9,7 +9,7 @@ namespace WinFormsApp1
     /// </summary>
     public partial class BeatPad : Form
     {
-        Recorder recorder = new Recorder();
+        Recorder recorder;
         BeatSoundUpload uploadForm = new BeatSoundUpload(); // upload form
         AudioPlayer player; // audio player class
 
@@ -600,6 +600,7 @@ namespace WinFormsApp1
 
         private void beatFormatterToolStripMenuItem_Click(object sender, EventArgs e)
         {
+          
             FourBar fourBar = new FourBar();
             fourBar.Show();
         }
@@ -611,7 +612,15 @@ namespace WinFormsApp1
 
         private void recorderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            recorder.Show();
+            if (recorder == null || recorder.IsDisposed)
+            {
+                recorder = new Recorder();
+                recorder.Show();
+            }
+            else
+            {
+                recorder.BringToFront();
+            }
         }
     }
 }

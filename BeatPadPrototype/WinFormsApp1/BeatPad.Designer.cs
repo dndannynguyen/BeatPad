@@ -38,6 +38,7 @@
             additionToolStripMenuItem = new ToolStripMenuItem();
             metronomeToolStripMenuItem = new ToolStripMenuItem();
             beatFormatterToolStripMenuItem = new ToolStripMenuItem();
+            recorderToolStripMenuItem = new ToolStripMenuItem();
             button4 = new Button();
             upload4 = new Button();
             upload8 = new Button();
@@ -56,7 +57,6 @@
             button11 = new Button();
             button10 = new Button();
             button9 = new Button();
-            recorderToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -155,6 +155,13 @@
             beatFormatterToolStripMenuItem.Size = new Size(180, 22);
             beatFormatterToolStripMenuItem.Text = "Beat Formatter";
             beatFormatterToolStripMenuItem.Click += beatFormatterToolStripMenuItem_Click;
+            // 
+            // recorderToolStripMenuItem
+            // 
+            recorderToolStripMenuItem.Name = "recorderToolStripMenuItem";
+            recorderToolStripMenuItem.Size = new Size(180, 22);
+            recorderToolStripMenuItem.Text = "Beat Recorder";
+            recorderToolStripMenuItem.Click += recorderToolStripMenuItem_Click;
             // 
             // button4
             // 
@@ -362,13 +369,6 @@
             button9.TabIndex = 16;
             button9.UseVisualStyleBackColor = true;
             button9.Click += button9_Click;
-            // 
-            // recorderToolStripMenuItem
-            // 
-            recorderToolStripMenuItem.Name = "recorderToolStripMenuItem";
-            recorderToolStripMenuItem.Size = new Size(180, 22);
-            recorderToolStripMenuItem.Text = "Recorder";
-            recorderToolStripMenuItem.Click += recorderToolStripMenuItem_Click;
             // 
             // BeatPad
             // 
