@@ -19,6 +19,8 @@ namespace WinFormsApp1
         string buttonSound1Filepath;
         int selectedButtonIndex = -1;
         int currentButtonIndex = 0;
+        HashSet<int> clickedButtonIndexes = new HashSet<int>();
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FourBar"/> class.
@@ -28,6 +30,8 @@ namespace WinFormsApp1
             InitializeComponent();
             this.player = new AudioPlayer();
             InitializeButtons();
+            PlayButtonsLoop();
+
         }
 
         /// <summary>
@@ -50,28 +54,22 @@ namespace WinFormsApp1
         {
             while (true)
             {
-                // Reset the background color of all buttons to white
-                foreach (Control control in Controls)
-                {
-                    if (control is Button button)
-                    {
-
-                    }
-                }
-
-                // Loop through buttons
                 for (int i = 0; i < 32; i++)
                 {
-                    if (selectedButtonIndex == i && !string.IsNullOrEmpty(buttonSound1Filepath))
+                    if (clickedButtonIndexes.Contains(i))
                     {
-                        // Change button color to red if it's the selected button
-                        Controls[$"button{selectedButtonIndex + 1}"].BackColor = Color.Red;
                         // Play the sound asynchronously
                         await Task.Run(() => player.PlayAudio(buttonSound1Filepath));
+                        currentButtonIndex = (currentButtonIndex + 1) % 32;
+                        await Task.Delay(250);
                     }
-                    // Move to the next button index
-                    currentButtonIndex = (currentButtonIndex + 1) % 32;
-                    await Task.Delay(250);
+                    else
+                    {
+                        Controls[$"button{i + 1}"].BackColor = Color.Green;
+                        await Task.Delay(250);
+                        Controls[$"button{i + 1}"].BackColor = Color.White;
+                        currentButtonIndex = (currentButtonIndex + 1) % 32;
+                    }
                 }
             }
         }
@@ -86,16 +84,16 @@ namespace WinFormsApp1
             int clickedIndex = int.Parse(clickedButton.Name.Substring(6)) - 1; // Extract the button index from its name
 
             // Toggle button selection
-            if (selectedButtonIndex == clickedIndex)
+            if (clickedButtonIndexes.Contains(clickedIndex))
             {
                 // Deselect the button
-                selectedButtonIndex = -1;
+                clickedButtonIndexes.Remove(clickedIndex);
                 clickedButton.BackColor = Color.White;
             }
             else
             {
                 // Select the button
-                selectedButtonIndex = clickedIndex;
+                clickedButtonIndexes.Add(clickedIndex);
                 clickedButton.BackColor = Color.Red;
             }
         }
@@ -128,12 +126,13 @@ namespace WinFormsApp1
         /// <summary>
         /// Event handler for assigning a sound file to buttonSound1 and starting the loop.
         /// </summary>
-        private void buttonSound1_Click(object sender, EventArgs e)
+        private async void buttonSound1_Click(object sender, EventArgs e)
         {
-            // Set the selected sound file path for buttonSound1
             buttonSound1Filepath = uploadForm.filepath;
-            // Start the loop if a sound file is selected for buttonSound1
-            PlayButtonsLoop(); // Start the loop asynchronously
+            if (!string.IsNullOrEmpty(buttonSound1Filepath))
+            {
+                await Task.Run(() => player.PlayAudio(buttonSound1Filepath)); // Play the sound once
+            }
         }
     }
 }
