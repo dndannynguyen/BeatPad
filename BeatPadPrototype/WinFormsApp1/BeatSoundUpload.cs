@@ -32,6 +32,10 @@ namespace WinFormsApp1
         {
             // creates an instance of fileDialog 
             OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Title = "Select Audio File";
+            fileDialog.Filter = "Audio Files (*.mp3;*.wav;*.ogg)|*.mp3;*.wav;*.ogg";
+            fileDialog.Multiselect = false;
+
 
             // show the dialog and if a file is added,
             if (fileDialog.ShowDialog() == DialogResult.OK)
