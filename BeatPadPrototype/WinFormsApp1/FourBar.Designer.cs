@@ -61,7 +61,13 @@
             button31 = new Button();
             button32 = new Button();
             buttonSound1 = new Button();
-            buttonUpload = new Button();
+            buttonUpload1 = new Button();
+            buttonSound2 = new Button();
+            buttonSound3 = new Button();
+            buttonSound4 = new Button();
+            buttonUpload2 = new Button();
+            buttonUpload3 = new Button();
+            buttonUpload4 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -322,30 +328,96 @@
             // 
             // buttonSound1
             // 
-            buttonSound1.Location = new Point(363, 260);
+            buttonSound1.Location = new Point(154, 280);
             buttonSound1.Name = "buttonSound1";
             buttonSound1.Size = new Size(75, 55);
             buttonSound1.TabIndex = 32;
             buttonSound1.Text = "Sound 1";
             buttonSound1.UseVisualStyleBackColor = true;
-            buttonSound1.Click += buttonSound1_Click;
+            buttonSound1.Click += buttonSound_Click;
             // 
-            // buttonUpload
+            // buttonUpload1
             // 
-            buttonUpload.Location = new Point(363, 332);
-            buttonUpload.Name = "buttonUpload";
-            buttonUpload.Size = new Size(75, 23);
-            buttonUpload.TabIndex = 33;
-            buttonUpload.Text = "Upload";
-            buttonUpload.UseVisualStyleBackColor = true;
-            buttonUpload.Click += buttonUpload1_Click;
+            buttonUpload1.Location = new Point(154, 341);
+            buttonUpload1.Name = "buttonUpload1";
+            buttonUpload1.Size = new Size(75, 23);
+            buttonUpload1.TabIndex = 33;
+            buttonUpload1.Text = "Upload";
+            buttonUpload1.UseVisualStyleBackColor = true;
+            buttonUpload1.Click += buttonUpload_Click;
+            // 
+            // buttonSound2
+            // 
+            buttonSound2.Location = new Point(291, 280);
+            buttonSound2.Name = "buttonSound2";
+            buttonSound2.Size = new Size(75, 55);
+            buttonSound2.TabIndex = 34;
+            buttonSound2.Text = "Sound 2";
+            buttonSound2.UseVisualStyleBackColor = true;
+            buttonSound2.Click += buttonSound_Click;
+            // 
+            // buttonSound3
+            // 
+            buttonSound3.Location = new Point(434, 280);
+            buttonSound3.Name = "buttonSound3";
+            buttonSound3.Size = new Size(75, 55);
+            buttonSound3.TabIndex = 35;
+            buttonSound3.Text = "Sound 3";
+            buttonSound3.UseVisualStyleBackColor = true;
+            buttonSound3.Click += buttonSound_Click;
+            // 
+            // buttonSound4
+            // 
+            buttonSound4.Location = new Point(571, 280);
+            buttonSound4.Name = "buttonSound4";
+            buttonSound4.Size = new Size(75, 55);
+            buttonSound4.TabIndex = 36;
+            buttonSound4.Text = "Sound 4";
+            buttonSound4.UseVisualStyleBackColor = true;
+            buttonSound4.Click += buttonSound_Click;
+            // 
+            // buttonUpload2
+            // 
+            buttonUpload2.Location = new Point(291, 341);
+            buttonUpload2.Name = "buttonUpload2";
+            buttonUpload2.Size = new Size(75, 23);
+            buttonUpload2.TabIndex = 37;
+            buttonUpload2.Text = "Upload";
+            buttonUpload2.UseVisualStyleBackColor = true;
+            buttonUpload2.Click += buttonUpload_Click;
+            // 
+            // buttonUpload3
+            // 
+            buttonUpload3.Location = new Point(434, 341);
+            buttonUpload3.Name = "buttonUpload3";
+            buttonUpload3.Size = new Size(75, 23);
+            buttonUpload3.TabIndex = 38;
+            buttonUpload3.Text = "Upload";
+            buttonUpload3.UseVisualStyleBackColor = true;
+            buttonUpload3.Click += buttonUpload_Click;
+            // 
+            // buttonUpload4
+            // 
+            buttonUpload4.Location = new Point(571, 341);
+            buttonUpload4.Name = "buttonUpload4";
+            buttonUpload4.Size = new Size(75, 23);
+            buttonUpload4.TabIndex = 39;
+            buttonUpload4.Text = "Upload";
+            buttonUpload4.UseVisualStyleBackColor = true;
+            buttonUpload4.Click += buttonUpload_Click;
             // 
             // FourBar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(buttonUpload);
+            Controls.Add(buttonUpload4);
+            Controls.Add(buttonUpload3);
+            Controls.Add(buttonUpload2);
+            Controls.Add(buttonSound4);
+            Controls.Add(buttonSound3);
+            Controls.Add(buttonSound2);
+            Controls.Add(buttonUpload1);
             Controls.Add(buttonSound1);
             Controls.Add(button25);
             Controls.Add(button26);
@@ -380,7 +452,7 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "FourBar";
-            Text = "Form1";
+            Text = "Beat Formation";
             ResumeLayout(false);
         }
 
@@ -420,5 +492,15 @@
         private Button button32;
         private Button buttonSound1;
         private Button buttonUpload;
+        private Button button33;
+        private Button button34;
+        private Button button35;
+        private Button buttonUpload1;
+        private Button buttonSound2;
+        private Button buttonSound3;
+        private Button buttonSound4;
+        private Button buttonUpload2;
+        private Button buttonUpload3;
+        private Button buttonUpload4;
     }
 }

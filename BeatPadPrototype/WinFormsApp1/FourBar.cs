@@ -6,17 +6,20 @@ using System.Windows.Forms;
 namespace WinFormsApp1
 {
     /// <summary>
-    /// Represents the main form of the application for playing sound files in a loop.
+    /// Danny Nguyen
+    /// 
+    /// Represents the main form of the application for playing sound files in a loop of the four bar beat formation.
     /// </summary>
     public partial class FourBar : Form
     {
-        // Instance variables
         BeatSoundUpload uploadForm = new BeatSoundUpload();
         AudioPlayer player;
         string[] buttonFilepaths = new string[32];
-        string buttonSound1Filepath;
-        int selectedButtonIndex = -1;
+        string[] buttonSoundFilepaths = new string[4];
         int currentButtonIndex = 0;
+        HashSet<int>[] soundClickedButtonIndexes = new HashSet<int>[4]; // Array to store clicked button indexes for each sound button
+        int soundButtonAt = 1;
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FourBar"/> class.
@@ -26,6 +29,14 @@ namespace WinFormsApp1
             InitializeComponent();
             this.player = new AudioPlayer();
             InitializeButtons();
+
+            for (int i = 0; i < 4; i++)
+            {
+                soundClickedButtonIndexes[i] = new HashSet<int>();
+            }
+
+            PlayButtonsLoop();
+
         }
 
         /// <summary>
@@ -48,28 +59,29 @@ namespace WinFormsApp1
         {
             while (true)
             {
-                // Reset the background color of all buttons to white
-                foreach (Control control in Controls)
-                {
-                    if (control is Button button)
-                    {
-
-                    }
-                }
-
-                // Loop through buttons
                 for (int i = 0; i < 32; i++)
                 {
-                    if (selectedButtonIndex == i && !string.IsNullOrEmpty(buttonSound1Filepath))
+                    if (soundClickedButtonIndexes[0].Contains(i) || soundClickedButtonIndexes[1].Contains(i) || soundClickedButtonIndexes[2].Contains(i) || soundClickedButtonIndexes[3].Contains(i))
                     {
-                        // Change button color to red if it's the selected button
-                        Controls[$"button{selectedButtonIndex + 1}"].BackColor = Color.Red;
-                        // Play the sound asynchronously
-                        await Task.Run(() => player.PlayAudio(buttonSound1Filepath));
+                        for (int j = 0; j < 4; j++)
+                        {
+                            if (soundClickedButtonIndexes[j].Contains(i))
+                            {
+                                // Play the sound asynchronously
+                                await Task.Run(() => player.PlayAudio(buttonSoundFilepaths[j]));
+                                await Task.Delay(250);
+                                currentButtonIndex = (currentButtonIndex + 1) % 32;
+                            }
+                        }
                     }
-                    // Move to the next button index
-                    currentButtonIndex = (currentButtonIndex + 1) % 32;
-                    await Task.Delay(250);
+                    else
+                    {
+                        // If the button is not set to play sounds in the period, keep the green background going through.
+                        Controls[$"button{i + 1}"].BackColor = Color.Green;
+                        await Task.Delay(250);
+                        Controls[$"button{i + 1}"].BackColor = Color.White;
+                        currentButtonIndex = (currentButtonIndex + 1) % 32;
+                    }
                 }
             }
         }
@@ -79,72 +91,69 @@ namespace WinFormsApp1
         /// </summary>
         private void Button_Click(object sender, EventArgs e)
         {
-            // Get the index of the clicked button
             Button clickedButton = sender as Button;
-            int clickedIndex = int.Parse(clickedButton.Name.Substring(6)) - 1; // Extract the button index from its name
+            int clickedIndex = int.Parse(clickedButton.Name.Substring(6)) - 1;
 
-            // Toggle button selection
-            if (selectedButtonIndex == clickedIndex)
-            {
-                // Deselect the button
-                selectedButtonIndex = -1;
-                clickedButton.BackColor = Color.White;
-            }
-            else
-            {
-                // Select the button
-                selectedButtonIndex = clickedIndex;
-                clickedButton.BackColor = Color.Red;
-
-                // Deselect other buttons
-                foreach (Control control in Controls)
-                {
-                    if (control is Button button && button != clickedButton)
-                    {
-                        button.BackColor = Color.White;
-                    }
-                }
-            }
+            // Select the sound button
+            soundClickedButtonIndexes[soundButtonAt - 1].SymmetricExceptWith(new HashSet<int> { clickedIndex });
+            clickedButton.BackColor = soundClickedButtonIndexes[soundButtonAt - 1].Contains(clickedIndex) ? Color.Pink : Color.White;
         }
 
         /// <summary>
         /// Event handler for uploading sound files. Assigns the uploaded file path to the current button.
         /// </summary>
-        private void buttonUpload1_Click(object sender, EventArgs e)
+        private void buttonUpload_Click(object sender, EventArgs e)
         {
-            // Reset upload form
+            Button uploadButton = sender as Button;
+            int soundButtonIndex = int.Parse(uploadButton.Name.Substring(12, 1));
+
             uploadForm.resetForm();
-            // Show the upload form
             uploadForm.ShowDialog();
 
-            // If user successfully uploads file
             if (uploadForm.filepath != null)
             {
-                // Add the audio file path of the current button
-                buttonFilepaths[currentButtonIndex] = uploadForm.filepath;
-                // Enable the current button
+                buttonSoundFilepaths[soundButtonIndex - 1] = uploadForm.filepath;
                 Controls[$"button{currentButtonIndex + 1}"].Enabled = true;
-                // Change the button name if user added a name
                 if (uploadForm.name != null)
                 {
-                    Controls[$"button{currentButtonIndex + 1}"].Text = uploadForm.name;
-                }
-                else
-                {
-                    Controls[$"button{currentButtonIndex + 1}"].Text = $"Button {currentButtonIndex + 1}";
+                    Controls[$"buttonSound{soundButtonIndex}"].Text = uploadForm.name;
                 }
             }
         }
 
         /// <summary>
-        /// Event handler for assigning a sound file to buttonSound1 and starting the loop.
+        /// Event handler for when a sound button is clicked. Sets the currently selected sound button and refreshes the UI accordingly.
         /// </summary>
-        private void buttonSound1_Click(object sender, EventArgs e)
+        private void buttonSound_Click(object sender, EventArgs e)
         {
-            // Set the selected sound file path for buttonSound1
-            buttonSound1Filepath = uploadForm.filepath;
-            // Start the loop if a sound file is selected for buttonSound1
-            PlayButtonsLoop(); // Start the loop asynchronously
+            Button soundButton = sender as Button;
+            soundButtonAt = int.Parse(soundButton.Name.Substring(11, 1));
+            RefreshUI();
+            ShowUI();
+        }
+
+        /// <summary>
+        /// Shows the UI configuration for the currently selected sound button, highlighting the buttons that are selected.
+        /// </summary>
+        private void ShowUI()
+        {
+            for (int i = 0; i < 32; i++)
+            {
+                Button button = Controls[$"button{i + 1}"] as Button;
+                button.BackColor = soundClickedButtonIndexes[soundButtonAt - 1].Contains(i) ? Color.Pink : Color.White;
+            }
+        }
+
+        /// <summary>
+        /// Refreshes the UI for all 32 buttons, resetting their colors to default.
+        /// </summary>
+        private void RefreshUI()
+        {
+            for (int i = 0; i < 32; i++)
+            {
+                Button button = Controls[$"button{i + 1}"] as Button;
+                button.BackColor = Color.White;
+            }
         }
     }
 }
