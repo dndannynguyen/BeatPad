@@ -334,7 +334,7 @@
             buttonSound1.TabIndex = 32;
             buttonSound1.Text = "Sound 1";
             buttonSound1.UseVisualStyleBackColor = true;
-            buttonSound1.Click += buttonSound1_Click;
+            buttonSound1.Click += buttonSound_Click;
             // 
             // buttonUpload1
             // 
@@ -344,7 +344,7 @@
             buttonUpload1.TabIndex = 33;
             buttonUpload1.Text = "Upload";
             buttonUpload1.UseVisualStyleBackColor = true;
-            buttonUpload1.Click += buttonUpload1_Click;
+            buttonUpload1.Click += buttonUpload_Click;
             // 
             // buttonSound2
             // 
@@ -354,7 +354,7 @@
             buttonSound2.TabIndex = 34;
             buttonSound2.Text = "Sound 2";
             buttonSound2.UseVisualStyleBackColor = true;
-            buttonSound2.Click += buttonSound2_Click;
+            buttonSound2.Click += buttonSound_Click;
             // 
             // buttonSound3
             // 
@@ -364,7 +364,7 @@
             buttonSound3.TabIndex = 35;
             buttonSound3.Text = "Sound 3";
             buttonSound3.UseVisualStyleBackColor = true;
-            buttonSound3.Click += buttonSound3_Click;
+            buttonSound3.Click += buttonSound_Click;
             // 
             // buttonSound4
             // 
@@ -374,7 +374,7 @@
             buttonSound4.TabIndex = 36;
             buttonSound4.Text = "Sound 4";
             buttonSound4.UseVisualStyleBackColor = true;
-            buttonSound4.Click += buttonSound4_Click;
+            buttonSound4.Click += buttonSound_Click;
             // 
             // buttonUpload2
             // 
@@ -384,7 +384,7 @@
             buttonUpload2.TabIndex = 37;
             buttonUpload2.Text = "Upload";
             buttonUpload2.UseVisualStyleBackColor = true;
-            buttonUpload2.Click += buttonUpload2_Click;
+            buttonUpload2.Click += buttonUpload_Click;
             // 
             // buttonUpload3
             // 
@@ -394,7 +394,7 @@
             buttonUpload3.TabIndex = 38;
             buttonUpload3.Text = "Upload";
             buttonUpload3.UseVisualStyleBackColor = true;
-            buttonUpload3.Click += buttonUpload3_Click;
+            buttonUpload3.Click += buttonUpload_Click;
             // 
             // buttonUpload4
             // 
@@ -404,7 +404,7 @@
             buttonUpload4.TabIndex = 39;
             buttonUpload4.Text = "Upload";
             buttonUpload4.UseVisualStyleBackColor = true;
-            buttonUpload4.Click += buttonUpload4_Click;
+            buttonUpload4.Click += buttonUpload_Click;
             // 
             // FourBar
             // 
