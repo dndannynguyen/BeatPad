@@ -9,6 +9,7 @@ namespace WinFormsApp1
     /// </summary>
     public partial class BeatPad : Form
     {
+        Recorder recorder = new Recorder();
         BeatSoundUpload uploadForm = new BeatSoundUpload(); // upload form
         AudioPlayer player; // audio player class
 
@@ -39,7 +40,7 @@ namespace WinFormsApp1
 
                 // create a timer
                 Timer timer = new Timer();
-                timer.Interval = 100; 
+                timer.Interval = 100;
 
                 // define the colors to cycle through
                 List<Color> colors = new List<Color> { Color.Red, Color.Blue, Color.Green, Color.Yellow, Color.Purple };
@@ -606,6 +607,11 @@ namespace WinFormsApp1
         private void additionToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void recorderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            recorder.Show();
         }
     }
 }

@@ -56,6 +56,7 @@
             button11 = new Button();
             button10 = new Button();
             button9 = new Button();
+            recorderToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -135,7 +136,7 @@
             // 
             // additionToolStripMenuItem
             // 
-            additionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { metronomeToolStripMenuItem, beatFormatterToolStripMenuItem });
+            additionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { metronomeToolStripMenuItem, beatFormatterToolStripMenuItem, recorderToolStripMenuItem });
             additionToolStripMenuItem.Name = "additionToolStripMenuItem";
             additionToolStripMenuItem.Size = new Size(48, 20);
             additionToolStripMenuItem.Text = "Open";
@@ -144,14 +145,14 @@
             // metronomeToolStripMenuItem
             // 
             metronomeToolStripMenuItem.Name = "metronomeToolStripMenuItem";
-            metronomeToolStripMenuItem.Size = new Size(152, 22);
+            metronomeToolStripMenuItem.Size = new Size(180, 22);
             metronomeToolStripMenuItem.Text = "Metronome";
             metronomeToolStripMenuItem.Click += metronomeToolStripMenuItem_Click;
             // 
             // beatFormatterToolStripMenuItem
             // 
             beatFormatterToolStripMenuItem.Name = "beatFormatterToolStripMenuItem";
-            beatFormatterToolStripMenuItem.Size = new Size(152, 22);
+            beatFormatterToolStripMenuItem.Size = new Size(180, 22);
             beatFormatterToolStripMenuItem.Text = "Beat Formatter";
             beatFormatterToolStripMenuItem.Click += beatFormatterToolStripMenuItem_Click;
             // 
@@ -362,6 +363,13 @@
             button9.UseVisualStyleBackColor = true;
             button9.Click += button9_Click;
             // 
+            // recorderToolStripMenuItem
+            // 
+            recorderToolStripMenuItem.Name = "recorderToolStripMenuItem";
+            recorderToolStripMenuItem.Size = new Size(180, 22);
+            recorderToolStripMenuItem.Text = "Recorder";
+            recorderToolStripMenuItem.Click += recorderToolStripMenuItem_Click;
+            // 
             // BeatPad
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -431,5 +439,6 @@
         private Button button10;
         private Button button9;
         private ToolStripMenuItem beatFormatterToolStripMenuItem;
+        private ToolStripMenuItem recorderToolStripMenuItem;
     }
 }

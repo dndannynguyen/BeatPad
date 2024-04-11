@@ -26,10 +26,22 @@ namespace WinFormsApp1
             return devices.ToArray();
         }
 
-        public void StartRecording(string fileName, MMDevice device)
+        public string GetSaveLocation()
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "Wave files | *.wav";
+
+            if (saveDialog.ShowDialog() != DialogResult.OK)
+            {
+                return "-1";
+            }
+            return saveDialog.FileName;
+        }
+
+        public void StartRecording(string filename, MMDevice device)
         {
             this.capture = new WasapiLoopbackCapture(device);
-            this.waveFileWriter = new WaveFileWriter(fileName, capture.WaveFormat);
+            this.waveFileWriter = new WaveFileWriter(filename, capture.WaveFormat);
             capture.DataAvailable += (_, @event) =>
             {
                 waveFileWriter.Write(@event.Buffer, 0, @event.BytesRecorded);
@@ -42,7 +54,7 @@ namespace WinFormsApp1
 
                 ProcessStartInfo startInfo = new ProcessStartInfo
                 {
-                    FileName = Path.GetDirectoryName(fileName),
+                    FileName = Path.GetDirectoryName(filename),
                     UseShellExecute = true,
                 };
                 Process.Start(startInfo);
