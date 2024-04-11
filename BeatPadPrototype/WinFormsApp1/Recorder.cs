@@ -14,9 +14,17 @@ namespace WinFormsApp1
 {
     public partial class Recorder : Form
     {
+        /// <summary>
+        /// SeungJae Baek
+        /// 
+        /// Audio Recorder Form
+        /// </summary>
         private AudioRecorder recorder;
         private Array listOfDevices;
 
+        /// <summary>
+        /// Initializes audio recorder, and sets up for recording
+        /// </summary>
         public Recorder()
         {
             InitializeComponent();
@@ -26,26 +34,26 @@ namespace WinFormsApp1
             devices.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// When record button is clicked, depending on the button text state, it will start recording, or stop
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void recordButton_Click(object sender, EventArgs e)
         {
             if (recordButton.Text == "Record")
             {
                 string filename = this.recorder.GetSaveLocation();
                 this.recorder.StartRecording(filename, (MMDevice)devices.SelectedItem);
-                recordButton.Text = "Stop";
+                recordButton.Text = "Stop Recording";
             }
-            else if (recordButton.Text == "Stop")
+            else if (recordButton.Text == "Stop Recording")
             {
                 this.recorder.StopRecording();
                 recordButton.Text = "Record";
             }
         }
-
-        private void recordFileNameTextBox_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
 

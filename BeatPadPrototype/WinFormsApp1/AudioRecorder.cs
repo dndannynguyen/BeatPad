@@ -19,6 +19,10 @@ namespace WinFormsApp1
         private WasapiLoopbackCapture? capture;
         private WaveFileWriter? waveFileWriter;
 
+        /// <summary>
+        /// Loads Devices and returns the list of active audio devices
+        /// </summary>
+        /// <returns></returns>
         public Array LoadDevices()
         {
             MMDeviceEnumerator enumerator = new MMDeviceEnumerator();
@@ -26,6 +30,10 @@ namespace WinFormsApp1
             return devices.ToArray();
         }
 
+        /// <summary>
+        /// Opens SaveFileDialog and returns the filename the user provided
+        /// </summary>
+        /// <returns></returns>
         public string GetSaveLocation()
         {
             SaveFileDialog saveDialog = new SaveFileDialog();
@@ -38,6 +46,11 @@ namespace WinFormsApp1
             return saveDialog.FileName;
         }
 
+        /// <summary>
+        /// Records audio from the MMDevice given at the place of filename
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <param name="device"></param>
         public void StartRecording(string filename, MMDevice device)
         {
             this.capture = new WasapiLoopbackCapture(device);
@@ -63,6 +76,9 @@ namespace WinFormsApp1
             capture.StartRecording();
         }
 
+        /// <summary>
+        /// Calls capture stop recording
+        /// </summary>
         public void StopRecording()
         {
             if (capture != null)

@@ -35,9 +35,9 @@
             // 
             // recordButton
             // 
-            recordButton.Location = new Point(75, 115);
+            recordButton.Location = new Point(49, 103);
             recordButton.Name = "recordButton";
-            recordButton.Size = new Size(75, 23);
+            recordButton.Size = new Size(128, 57);
             recordButton.TabIndex = 0;
             recordButton.Text = "Record";
             recordButton.UseVisualStyleBackColor = true;
