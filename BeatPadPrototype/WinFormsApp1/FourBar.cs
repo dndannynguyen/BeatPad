@@ -66,7 +66,7 @@ namespace WinFormsApp1
         /// </summary>
         private async Task PlayButtonsLoop()
         {
-            while (isRunning)
+            while (this.isRunning)
             {
 
                 for (int i = 0; i < 32; i++)
@@ -97,7 +97,7 @@ namespace WinFormsApp1
                         }
                         catch
                         {
-                            isRunning = false;
+                            this.isRunning = false;
                             break;
                         }
                     }
