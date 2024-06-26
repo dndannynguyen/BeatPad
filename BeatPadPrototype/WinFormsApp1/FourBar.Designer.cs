@@ -68,11 +68,15 @@
             buttonUpload2 = new Button();
             buttonUpload3 = new Button();
             buttonUpload4 = new Button();
+            buttonApply = new Button();
+            numberBox = new NumericUpDown();
+            labelBPM = new Label();
+            ((System.ComponentModel.ISupportInitialize)numberBox).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(179, 42);
+            button1.Location = new Point(249, 222);
             button1.Name = "button1";
             button1.Size = new Size(50, 45);
             button1.TabIndex = 0;
@@ -80,7 +84,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(235, 42);
+            button2.Location = new Point(305, 222);
             button2.Name = "button2";
             button2.Size = new Size(50, 45);
             button2.TabIndex = 1;
@@ -88,7 +92,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(291, 42);
+            button3.Location = new Point(361, 222);
             button3.Name = "button3";
             button3.Size = new Size(50, 45);
             button3.TabIndex = 2;
@@ -96,7 +100,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(347, 42);
+            button4.Location = new Point(417, 222);
             button4.Name = "button4";
             button4.Size = new Size(50, 45);
             button4.TabIndex = 3;
@@ -104,7 +108,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(403, 42);
+            button5.Location = new Point(473, 222);
             button5.Name = "button5";
             button5.Size = new Size(50, 45);
             button5.TabIndex = 4;
@@ -112,7 +116,7 @@
             // 
             // button6
             // 
-            button6.Location = new Point(459, 42);
+            button6.Location = new Point(529, 222);
             button6.Name = "button6";
             button6.Size = new Size(50, 45);
             button6.TabIndex = 5;
@@ -120,7 +124,7 @@
             // 
             // button7
             // 
-            button7.Location = new Point(515, 42);
+            button7.Location = new Point(585, 222);
             button7.Name = "button7";
             button7.Size = new Size(50, 45);
             button7.TabIndex = 6;
@@ -128,7 +132,7 @@
             // 
             // button8
             // 
-            button8.Location = new Point(571, 42);
+            button8.Location = new Point(641, 222);
             button8.Name = "button8";
             button8.Size = new Size(50, 45);
             button8.TabIndex = 7;
@@ -136,7 +140,7 @@
             // 
             // button9
             // 
-            button9.Location = new Point(179, 93);
+            button9.Location = new Point(249, 273);
             button9.Name = "button9";
             button9.Size = new Size(50, 45);
             button9.TabIndex = 15;
@@ -144,7 +148,7 @@
             // 
             // button10
             // 
-            button10.Location = new Point(235, 93);
+            button10.Location = new Point(305, 273);
             button10.Name = "button10";
             button10.Size = new Size(50, 45);
             button10.TabIndex = 14;
@@ -152,7 +156,7 @@
             // 
             // button11
             // 
-            button11.Location = new Point(291, 93);
+            button11.Location = new Point(361, 273);
             button11.Name = "button11";
             button11.Size = new Size(50, 45);
             button11.TabIndex = 13;
@@ -160,7 +164,7 @@
             // 
             // button12
             // 
-            button12.Location = new Point(347, 93);
+            button12.Location = new Point(417, 273);
             button12.Name = "button12";
             button12.Size = new Size(50, 45);
             button12.TabIndex = 12;
@@ -168,7 +172,7 @@
             // 
             // button13
             // 
-            button13.Location = new Point(403, 93);
+            button13.Location = new Point(473, 273);
             button13.Name = "button13";
             button13.Size = new Size(50, 45);
             button13.TabIndex = 11;
@@ -176,7 +180,7 @@
             // 
             // button14
             // 
-            button14.Location = new Point(459, 93);
+            button14.Location = new Point(529, 273);
             button14.Name = "button14";
             button14.Size = new Size(50, 45);
             button14.TabIndex = 10;
@@ -184,7 +188,7 @@
             // 
             // button15
             // 
-            button15.Location = new Point(515, 93);
+            button15.Location = new Point(585, 273);
             button15.Name = "button15";
             button15.Size = new Size(50, 45);
             button15.TabIndex = 9;
@@ -192,7 +196,7 @@
             // 
             // button16
             // 
-            button16.Location = new Point(571, 93);
+            button16.Location = new Point(641, 273);
             button16.Name = "button16";
             button16.Size = new Size(50, 45);
             button16.TabIndex = 8;
@@ -200,7 +204,7 @@
             // 
             // button17
             // 
-            button17.Location = new Point(179, 144);
+            button17.Location = new Point(249, 324);
             button17.Name = "button17";
             button17.Size = new Size(50, 45);
             button17.TabIndex = 23;
@@ -208,7 +212,7 @@
             // 
             // button18
             // 
-            button18.Location = new Point(235, 144);
+            button18.Location = new Point(305, 324);
             button18.Name = "button18";
             button18.Size = new Size(50, 45);
             button18.TabIndex = 22;
@@ -216,7 +220,7 @@
             // 
             // button19
             // 
-            button19.Location = new Point(291, 144);
+            button19.Location = new Point(361, 324);
             button19.Name = "button19";
             button19.Size = new Size(50, 45);
             button19.TabIndex = 21;
@@ -224,7 +228,7 @@
             // 
             // button20
             // 
-            button20.Location = new Point(347, 144);
+            button20.Location = new Point(417, 324);
             button20.Name = "button20";
             button20.Size = new Size(50, 45);
             button20.TabIndex = 20;
@@ -232,7 +236,7 @@
             // 
             // button21
             // 
-            button21.Location = new Point(403, 144);
+            button21.Location = new Point(473, 324);
             button21.Name = "button21";
             button21.Size = new Size(50, 45);
             button21.TabIndex = 19;
@@ -240,7 +244,7 @@
             // 
             // button22
             // 
-            button22.Location = new Point(459, 144);
+            button22.Location = new Point(529, 324);
             button22.Name = "button22";
             button22.Size = new Size(50, 45);
             button22.TabIndex = 18;
@@ -248,7 +252,7 @@
             // 
             // button23
             // 
-            button23.Location = new Point(515, 144);
+            button23.Location = new Point(585, 324);
             button23.Name = "button23";
             button23.Size = new Size(50, 45);
             button23.TabIndex = 17;
@@ -256,7 +260,7 @@
             // 
             // button24
             // 
-            button24.Location = new Point(571, 144);
+            button24.Location = new Point(641, 324);
             button24.Name = "button24";
             button24.Size = new Size(50, 45);
             button24.TabIndex = 16;
@@ -264,7 +268,7 @@
             // 
             // button25
             // 
-            button25.Location = new Point(179, 195);
+            button25.Location = new Point(249, 375);
             button25.Name = "button25";
             button25.Size = new Size(50, 45);
             button25.TabIndex = 31;
@@ -272,7 +276,7 @@
             // 
             // button26
             // 
-            button26.Location = new Point(235, 195);
+            button26.Location = new Point(305, 375);
             button26.Name = "button26";
             button26.Size = new Size(50, 45);
             button26.TabIndex = 30;
@@ -280,7 +284,7 @@
             // 
             // button27
             // 
-            button27.Location = new Point(291, 195);
+            button27.Location = new Point(361, 375);
             button27.Name = "button27";
             button27.Size = new Size(50, 45);
             button27.TabIndex = 29;
@@ -288,7 +292,7 @@
             // 
             // button28
             // 
-            button28.Location = new Point(347, 195);
+            button28.Location = new Point(417, 375);
             button28.Name = "button28";
             button28.Size = new Size(50, 45);
             button28.TabIndex = 28;
@@ -296,7 +300,7 @@
             // 
             // button29
             // 
-            button29.Location = new Point(403, 195);
+            button29.Location = new Point(473, 375);
             button29.Name = "button29";
             button29.Size = new Size(50, 45);
             button29.TabIndex = 27;
@@ -304,7 +308,7 @@
             // 
             // button30
             // 
-            button30.Location = new Point(459, 195);
+            button30.Location = new Point(529, 375);
             button30.Name = "button30";
             button30.Size = new Size(50, 45);
             button30.TabIndex = 26;
@@ -312,7 +316,7 @@
             // 
             // button31
             // 
-            button31.Location = new Point(515, 195);
+            button31.Location = new Point(585, 375);
             button31.Name = "button31";
             button31.Size = new Size(50, 45);
             button31.TabIndex = 25;
@@ -320,7 +324,7 @@
             // 
             // button32
             // 
-            button32.Location = new Point(571, 195);
+            button32.Location = new Point(641, 375);
             button32.Name = "button32";
             button32.Size = new Size(50, 45);
             button32.TabIndex = 24;
@@ -328,7 +332,7 @@
             // 
             // buttonSound1
             // 
-            buttonSound1.Location = new Point(154, 280);
+            buttonSound1.Location = new Point(224, 460);
             buttonSound1.Name = "buttonSound1";
             buttonSound1.Size = new Size(75, 55);
             buttonSound1.TabIndex = 32;
@@ -338,17 +342,18 @@
             // 
             // buttonUpload1
             // 
-            buttonUpload1.Location = new Point(154, 341);
+            buttonUpload1.BackColor = Color.FromArgb(255, 128, 128);
+            buttonUpload1.Location = new Point(224, 521);
             buttonUpload1.Name = "buttonUpload1";
             buttonUpload1.Size = new Size(75, 23);
             buttonUpload1.TabIndex = 33;
             buttonUpload1.Text = "Upload";
-            buttonUpload1.UseVisualStyleBackColor = true;
+            buttonUpload1.UseVisualStyleBackColor = false;
             buttonUpload1.Click += buttonUpload_Click;
             // 
             // buttonSound2
             // 
-            buttonSound2.Location = new Point(291, 280);
+            buttonSound2.Location = new Point(361, 460);
             buttonSound2.Name = "buttonSound2";
             buttonSound2.Size = new Size(75, 55);
             buttonSound2.TabIndex = 34;
@@ -358,7 +363,7 @@
             // 
             // buttonSound3
             // 
-            buttonSound3.Location = new Point(434, 280);
+            buttonSound3.Location = new Point(504, 460);
             buttonSound3.Name = "buttonSound3";
             buttonSound3.Size = new Size(75, 55);
             buttonSound3.TabIndex = 35;
@@ -368,7 +373,7 @@
             // 
             // buttonSound4
             // 
-            buttonSound4.Location = new Point(571, 280);
+            buttonSound4.Location = new Point(641, 460);
             buttonSound4.Name = "buttonSound4";
             buttonSound4.Size = new Size(75, 55);
             buttonSound4.TabIndex = 36;
@@ -378,39 +383,82 @@
             // 
             // buttonUpload2
             // 
-            buttonUpload2.Location = new Point(291, 341);
+            buttonUpload2.BackColor = Color.FromArgb(255, 128, 128);
+            buttonUpload2.Location = new Point(361, 521);
             buttonUpload2.Name = "buttonUpload2";
             buttonUpload2.Size = new Size(75, 23);
             buttonUpload2.TabIndex = 37;
             buttonUpload2.Text = "Upload";
-            buttonUpload2.UseVisualStyleBackColor = true;
+            buttonUpload2.UseVisualStyleBackColor = false;
             buttonUpload2.Click += buttonUpload_Click;
             // 
             // buttonUpload3
             // 
-            buttonUpload3.Location = new Point(434, 341);
+            buttonUpload3.BackColor = Color.FromArgb(255, 128, 128);
+            buttonUpload3.Location = new Point(504, 521);
             buttonUpload3.Name = "buttonUpload3";
             buttonUpload3.Size = new Size(75, 23);
             buttonUpload3.TabIndex = 38;
             buttonUpload3.Text = "Upload";
-            buttonUpload3.UseVisualStyleBackColor = true;
+            buttonUpload3.UseVisualStyleBackColor = false;
             buttonUpload3.Click += buttonUpload_Click;
             // 
             // buttonUpload4
             // 
-            buttonUpload4.Location = new Point(571, 341);
+            buttonUpload4.BackColor = Color.FromArgb(255, 128, 128);
+            buttonUpload4.Location = new Point(641, 521);
             buttonUpload4.Name = "buttonUpload4";
             buttonUpload4.Size = new Size(75, 23);
             buttonUpload4.TabIndex = 39;
             buttonUpload4.Text = "Upload";
-            buttonUpload4.UseVisualStyleBackColor = true;
+            buttonUpload4.UseVisualStyleBackColor = false;
             buttonUpload4.Click += buttonUpload_Click;
+            // 
+            // buttonApply
+            // 
+            buttonApply.BackColor = Color.FromArgb(128, 255, 128);
+            buttonApply.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonApply.ForeColor = SystemColors.ControlText;
+            buttonApply.Location = new Point(417, 120);
+            buttonApply.Name = "buttonApply";
+            buttonApply.Size = new Size(106, 42);
+            buttonApply.TabIndex = 40;
+            buttonApply.Text = "Apply";
+            buttonApply.UseVisualStyleBackColor = false;
+            buttonApply.Click += buttonApply_Click;
+            // 
+            // numberBox
+            // 
+            numberBox.BackColor = Color.FromArgb(255, 192, 192);
+            numberBox.Location = new Point(417, 68);
+            numberBox.Maximum = new decimal(new int[] { 1200, 0, 0, 0 });
+            numberBox.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numberBox.Name = "numberBox";
+            numberBox.Size = new Size(63, 23);
+            numberBox.TabIndex = 41;
+            numberBox.TextAlign = HorizontalAlignment.Center;
+            numberBox.UpDownAlign = LeftRightAlignment.Left;
+            numberBox.Value = new decimal(new int[] { 240, 0, 0, 0 });
+            // 
+            // labelBPM
+            // 
+            labelBPM.AutoSize = true;
+            labelBPM.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelBPM.Location = new Point(478, 68);
+            labelBPM.Name = "labelBPM";
+            labelBPM.Size = new Size(45, 21);
+            labelBPM.TabIndex = 42;
+            labelBPM.Text = "BPM";
             // 
             // FourBar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.FromArgb(192, 192, 255);
+            ClientSize = new Size(939, 609);
+            Controls.Add(labelBPM);
+            Controls.Add(numberBox);
+            Controls.Add(buttonApply);
             Controls.Add(buttonUpload4);
             Controls.Add(buttonUpload3);
             Controls.Add(buttonUpload2);
@@ -451,9 +499,12 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
+            Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Name = "FourBar";
             Text = "Beat Formation";
+            ((System.ComponentModel.ISupportInitialize)numberBox).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -502,5 +553,8 @@
         private Button buttonUpload2;
         private Button buttonUpload3;
         private Button buttonUpload4;
+        private Button buttonApply;
+        private NumericUpDown numberBox;
+        private Label labelBPM;
     }
 }

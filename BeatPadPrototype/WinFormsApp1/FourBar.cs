@@ -20,6 +20,7 @@ namespace WinFormsApp1
         int currentButtonIndex = 0;
         HashSet<int>[] soundClickedButtonIndexes = new HashSet<int>[4]; // Array to store clicked button indexes for each sound button
         int soundButtonAt = 1;
+        int bpmValue = 240;
 
 
         /// <summary>
@@ -44,14 +45,14 @@ namespace WinFormsApp1
         }
 
         private void FourBarClosing(object sender, FormClosingEventArgs e)
-        { 
+        {
             isRunning = false;
         }
 
-            /// <summary>
-            /// Initializes the buttons on the form and assigns event handlers.
-            /// </summary>
-            private void InitializeButtons()
+        /// <summary>
+        /// Initializes the buttons on the form and assigns event handlers.
+        /// </summary>
+        private void InitializeButtons()
         {
             // Initialize buttons and event handlers
             for (int i = 0; i < 32; i++)
@@ -79,7 +80,7 @@ namespace WinFormsApp1
                             {
                                 // Play the sound asynchronously
                                 await Task.Run(() => player.PlayAudio(buttonSoundFilepaths[j]));
-                                await Task.Delay(250);
+                                await Task.Delay(bpmValue);
                                 currentButtonIndex = (currentButtonIndex + 1) % 32;
                             }
                         }
@@ -90,7 +91,7 @@ namespace WinFormsApp1
                         {
                             // If the button is not set to play sounds in the period, keep the green background going through.
                             Controls[$"button{i + 1}"].BackColor = Color.Green;
-                            await Task.Delay(250);
+                            await Task.Delay(bpmValue);
                             Controls[$"button{i + 1}"].BackColor = Color.White;
                             currentButtonIndex = (currentButtonIndex + 1) % 32;
 
@@ -173,6 +174,19 @@ namespace WinFormsApp1
                 Button button = Controls[$"button{i + 1}"] as Button;
                 button.BackColor = Color.White;
             }
+        }
+
+        /// <summary>
+        /// When the BPM value is changed, updates the BPM value and resets the current button index.
+        /// </summary>
+        private void buttonApply_Click(object sender, EventArgs e)
+        {
+            int bpmInput = (int)numberBox.Value;
+            if (bpmInput > 0)
+            {
+                bpmValue = 60000 / bpmInput;
+            }
+            currentButtonIndex = 0;
         }
     }
 }
