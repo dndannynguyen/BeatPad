@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -67,15 +68,18 @@ namespace WinFormsApp1
         /// </summary>
         private async Task PlayButtonsLoop()
         {
-            while (this.isRunning)
+            while (isRunning)
             {
-
                 for (int i = 0; i < 32; i++)
                 {
+                    if (!isRunning) break;
+
                     if (soundClickedButtonIndexes[0].Contains(i) || soundClickedButtonIndexes[1].Contains(i) || soundClickedButtonIndexes[2].Contains(i) || soundClickedButtonIndexes[3].Contains(i))
                     {
                         for (int j = 0; j < 4; j++)
                         {
+                            if (!isRunning) break;
+
                             if (soundClickedButtonIndexes[j].Contains(i))
                             {
                                 // Play the sound asynchronously
@@ -94,11 +98,10 @@ namespace WinFormsApp1
                             await Task.Delay(bpmValue);
                             Controls[$"button{i + 1}"].BackColor = Color.White;
                             currentButtonIndex = (currentButtonIndex + 1) % 32;
-
                         }
                         catch
                         {
-                            this.isRunning = false;
+                            isRunning = false;
                             break;
                         }
                     }
@@ -186,7 +189,6 @@ namespace WinFormsApp1
             {
                 bpmValue = 60000 / bpmInput;
             }
-            currentButtonIndex = 0;
         }
     }
 }

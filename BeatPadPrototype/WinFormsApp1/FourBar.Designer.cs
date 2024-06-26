@@ -432,7 +432,7 @@
             numberBox.BackColor = Color.FromArgb(255, 192, 192);
             numberBox.Location = new Point(417, 68);
             numberBox.Maximum = new decimal(new int[] { 1200, 0, 0, 0 });
-            numberBox.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numberBox.Minimum = new decimal(new int[] { 30, 0, 0, 0 });
             numberBox.Name = "numberBox";
             numberBox.Size = new Size(63, 23);
             numberBox.TabIndex = 41;
